@@ -85,12 +85,18 @@ def get_file_list(repo_list):
     return file_list
 
 def main():
+    interserctions_found = False
     for version in supported_versions:
         epel_rpms = get_file_list(epel_repos[version])
         synergy_rpms = get_file_list(synergy_repos[version])
         common_packages = set(epel_rpms).intersection(synergy_rpms)
         for package in common_packages:
+            interserctions_found = True
             print(f"Package exists in both EPEL and Synergy for version {version}: {package}")
+    if not interserctions_found:
+        print("No packages found in both EPEL and Synergy repos")
+    else:
+        exit(1)
 
 if __name__ == '__main__':
     main()
