@@ -15,13 +15,12 @@ supported_versions = [8, 9]
 
 epel_repos = {
     8: [
-        "https://dl.fedoraproject.org/pub/epel/8/Everything/x86_64/",
-        "https://dl.fedoraproject.org/pub/epel/8/Everything/aarch64/"
+        "https://repo.almalinux.org/almalinux/8.9/synergy/x86_64/os/",
+        "https://repo.almalinux.org/almalinux/8.9/synergy/aarch64/os/",
     ],
     9: [
-        "https://dl.fedoraproject.org/pub/epel/9/Everything/x86_64/",
-        "https://dl.fedoraproject.org/pub/epel/9/Everything/aarch64/"
-
+        "https://repo.almalinux.org/almalinux/9.3/synergy/x86_64/os/",
+        "https://repo.almalinux.org/almalinux/9.3/synergy/aarch64/os/",
     ]
 }
 
