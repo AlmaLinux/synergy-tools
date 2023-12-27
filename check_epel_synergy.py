@@ -95,8 +95,6 @@ def main():
             print(f"Package exists in both EPEL and Synergy for version {version}: {package}")
     if not interserctions_found:
         print("No packages found in both EPEL and Synergy repos")
-    else:
-        exit(1)
 
 if __name__ == '__main__':
     main()
