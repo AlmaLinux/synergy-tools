@@ -27,12 +27,12 @@ epel_repos = {
 
 synergy_repos = {
     8: [
-        "https://repo.almalinux.org/almalinux/8.9/synergy/x86_64/os/",
-        "https://repo.almalinux.org/almalinux/8.9/synergy/aarch64/os/",
+        "https://repo.almalinux.org/almalinux/8/synergy/x86_64/os/",
+        "https://repo.almalinux.org/almalinux/8/synergy/aarch64/os/",
     ],
     9: [
-        "https://repo.almalinux.org/almalinux/9.3/synergy/x86_64/os/",
-        "https://repo.almalinux.org/almalinux/9.3/synergy/aarch64/os/",
+        "https://repo.almalinux.org/almalinux/9/synergy/x86_64/os/",
+        "https://repo.almalinux.org/almalinux/9/synergy/aarch64/os/",
     ]
 }
 
@@ -76,7 +76,6 @@ def parse_primary_xml(primary_data):
 def get_file_list(repo_list):
     file_list = []
     for repo_link in repo_list:
-        # logging.info(f'Getting metadata from {repo_link}')
         primary_location = get_primary_file_location(repo_link)
         if primary_location:
             primary_data = download_and_extract_primary(repo_link, primary_location)
