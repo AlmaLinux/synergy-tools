@@ -10,6 +10,7 @@ import urllib.request
 import requests
 import xml.etree.ElementTree as ET
 import gzip
+import zstandard as zstd
 
 supported_versions = [8, 9]
 
@@ -56,7 +57,10 @@ def download_and_extract_primary(repo_link, primary_filename):
     try:
         primary = requests.get(urllib.parse.urljoin(repo_link, primary_filename))
         primary.raise_for_status()
-        return gzip.decompress(primary.content)
+        if primary_filename.endswith('.gz'):
+            return gzip.decompress(primary.content)
+        elif primary_filename.endswith('.zstd'):
+            return zstd.ZstdDecompressor().decompress(primary.content)
     except requests.RequestException as e:
         logging.error(f"Error downloading primary file: {e}")
     return None
