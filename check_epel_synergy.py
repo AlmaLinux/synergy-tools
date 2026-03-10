@@ -6,7 +6,7 @@
 # and add the repo links to epel_repos and synergy_repos dictionaries
 
 import logging
-import urllib.request
+import urllib.parse
 import requests
 import xml.etree.ElementTree as ET
 import gzip
